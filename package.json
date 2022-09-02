@@ -56,6 +56,7 @@
     "vinyl-source-stream": "^0.1.1"
   },
   "scripts": {
+    "deploy": "npm run build && bash deploy.sh",
     "test": "gulp test",
     "test-ci": "gulp test-ci",
     "watch": "gulp watch",
