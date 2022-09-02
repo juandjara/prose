@@ -122,7 +122,6 @@ module.exports = Backbone.Router.extend({
   profile: function(login) {
     if (this.view) this.view.remove();
 
-    this.app.loader.start(t('loading.repos'));
     this.app.nav.mode('repos');
 
     util.documentTitle(login);
@@ -155,6 +154,7 @@ module.exports = Backbone.Router.extend({
     user.fetch({
       success: (function(model, res, options) {
         this.view = content;
+        this.app.loader.start(t('loading.repos'));
         this.app.$el.find('#main').html(this.view.render().el);
 
         model.repos.fetch({

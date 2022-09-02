@@ -22,12 +22,18 @@ module.exports = Backbone.Collection.extend({
     options = _.clone(options) || {};
 
     var cb = options.success;
+    var cb2 = options.complete;
+
+    var complete = (function() {
+      cb();
+      cb2();
+    }).bind(this);
 
     var success = (function(res, statusText, xhr) {
       this.add(res);
       util.parseLinkHeader(xhr, {
         success: success,
-        complete: cb
+        complete: complete
       });
     }).bind(this);
 
