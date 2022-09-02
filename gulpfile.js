@@ -139,7 +139,7 @@ gulp.task('build-app', ['templates', 'oauth'], function() {
 
   return merge2(gulp.src(paths.vendorScripts), app)
   .pipe(concat('prose.js'))
-  .pipe(gulpif(isProd(), uglify()))
+  // .pipe(gulpif(isProd(), uglify()))
   .pipe(gulp.dest(dist));
 });
 
