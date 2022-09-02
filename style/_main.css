@@ -241,26 +241,8 @@
 .loading {
   position:fixed;
   z-index:7000;
-  top:0;
-  left:0;
-  width:100%;
-  padding:15px;
   color:#3d494e;
-  }
-  .loading .loading-icon {
-    background:transparent url('../img/loader@33x33.gif') no-repeat;
-    width:33px;
-    height:33px;
-    margin:0 10px 0 0;
-    }
-  .loading small {
-    display:block;
-    margin:5px 0 0;
-    }
-
-.loading {
-  background:rgb(255,255,255);
-  background:rgba(255,255,255,0.9);
+  background: #ffffff;
   border:1px solid #D4D7D9;
   top:50%;
   left:50%;
@@ -271,15 +253,18 @@
   font-size:16px;
   line-height:30px;
   box-shadow:0 1px 0 rgba(255, 255, 255, 0),
-  0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.loading .loading-icon {
-  background-image:url('../img/loader@55x55.gif');
-  margin:0 auto 5px;
-  width:55px;
-  height:55px;
-}
+             0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .loading .loading-icon {
+    background:transparent url('../img/loader@55x55.gif') no-repeat;
+    margin:0 auto 5px;
+    width:55px;
+    height:55px;
+    }
+  .loading small {
+    display:block;
+    margin:5px 0 0;
+    }
 
 .modal.overlay {
   background:rgba(255,255,255,0.6);
@@ -1444,6 +1429,7 @@
   .post .view.meta {
     background:#f0f0f0;
     margin:0 auto;
+    padding-bottom: 4px;
     }
 
 .post .view.diff pre {
@@ -1466,11 +1452,11 @@
   background:#fff;
   }
 .meta .finish {
-  -webkit-border-radius:0 0 4px 4px;
-          border-radius:0 0 4px 4px;
+    border-radius: 4px;
+    margin: 8px 12px;
   }
 .meta .form {
-  padding:15px 15px 30px;
+  padding:15px 0 30px;
   }
   .meta .form-item {
     padding:8px 15px 0;
