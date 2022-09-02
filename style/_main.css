@@ -882,14 +882,15 @@
     }
 
 .content-search {
+  margin: 0 15px;
   background:#f8f8f8;
-  width:60%;
   position:relative;
   -webkit-box-shadow:inset 0 2px 2px rgba(0,0,0,0.15);
           box-shadow:inset 0 2px 2px rgba(0,0,0,0.15);
   }
   .new-file {
-    margin:0 15px;
+    margin: 0;
+    margin-right: 15px;
     }
   .content-search input {
     background:transparent;
@@ -1911,3 +1912,11 @@
     right:-5px;
     }
 
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flex-grow {
+  flex-grow: 1;
+}
