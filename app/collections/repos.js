@@ -27,12 +27,12 @@ module.exports = Backbone.Collection.extend({
     var cb = options.success;
     var cb2 = options.complete;
 
-    var complete = (function() {
-      cb();
+    var complete = (function handleComplete(...args) {
+      cb(...args);
       cb2();
     }).bind(this);
 
-    var success = (function(res, statusText, xhr) {
+    var success = (function handleSuccess(res, statusText, xhr) {
       this.add(res);
       util.parseLinkHeader(xhr, {
         success: success,
@@ -40,15 +40,15 @@ module.exports = Backbone.Collection.extend({
       });
     }).bind(this);
 
-    Backbone.Collection.prototype.fetch.call(this, _.extend(options, {
-      complete: null,
+    Backbone.Collection.prototype.fetch.call(this, {
+      error: options.error,
       success: (function(model, res, options) {
         util.parseLinkHeader(options.xhr, {
           success: success,
-          error: cb
+          error: complete
         });
       }).bind(this)
-    }));
+    });
   },
 
   url: function() {
@@ -66,6 +66,6 @@ module.exports = Backbone.Collection.extend({
         break;
     }
 
-    return auth.api + path + '/repos?per_page=100';
+    return auth.api + path + '/repos?per_page=100&type=owner';
   }
 });
