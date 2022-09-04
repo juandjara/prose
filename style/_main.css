@@ -876,6 +876,7 @@
   .new-file {
     margin: 0;
     margin-right: 15px;
+    flex-shrink: 0;
     }
   .content-search input {
     background:transparent;
