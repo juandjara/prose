@@ -3,4 +3,4 @@ set -e
 
 mkdir -p site
 cp -a dist site
-cp -a img fonts index.html style-rtl.css locale.js oauth.json translations site
+cp -a img fonts index.html style-rtl.css locale.js translations site

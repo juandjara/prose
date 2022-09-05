@@ -1,12 +1,13 @@
-var cookie = require('./cookie');
-var oauth = require('../oauth.json');
+const cookie = require('./cookie');
+const clientId = process.env.CLIENT_ID;
+const LOCALHOST_CLIENT_ID = 'cd4c36646ee716425840';
 
 module.exports = {
-  api: oauth.api || 'https://api.github.com',
-  apiStatus: oauth.status || 'https://status.github.com/api/status.json',
-  site: oauth.site || 'https://github.com',
-  id: oauth.clientId,
-  url: oauth.gatekeeperUrl,
+  api: 'https://api.github.com',
+  apiStatus: 'https://status.github.com/api/status.json',
+  site: 'https://github.com',
+  OAuthTokenEndpoint: '/.netlify/functions/oauth?code=',
+  id: clientId || LOCALHOST_CLIENT_ID,
   username: cookie.get('username'),
   auth: 'oauth'
 };

@@ -8,3 +8,9 @@ test/lib
 _site
 site
 npm-debug.log
+
+# Local Netlify folder
+.netlify
+
+.env
+.env.local

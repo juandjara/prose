@@ -12,6 +12,7 @@ var NotificationView = require('../views/notification');
 var auth = require('../config');
 var cookie = require('../cookie');
 var templates = require('../../dist/templates');
+const config = require('../config');
 
 module.exports = Backbone.Model.extend({
   initialize: function(attributes, options) {
@@ -26,9 +27,12 @@ module.exports = Backbone.Model.extend({
       var parsed = url.parse(window.location.href, true);
       var code = parsed.query && parsed.query.code;
       if (code) {
-        var ajax = $.ajax(auth.url + '/authenticate/' + code, {
+        $.ajax({
+          url: config.OAuthTokenEndpoint + code,
+          type: 'GET',
+          dataType: 'json',
           success: function(data) {
-            cookie.set('oauth-token', data.token);
+            cookie.set('oauth-token', data.access_token);
             var newHref = url.format({
               protocol: parsed.protocol,
               slashes: parsed.slashes,

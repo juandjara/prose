@@ -23,7 +23,11 @@ module.exports = Backbone.View.extend({
   template: templates.start,
 
   render: function() {
-    this.$el.html(_.template(this.template, auth, { variable: 'auth' }));
+    const data = {
+      loginUrl: `${auth.site}/login/oauth/authorize?client_id=${auth.id}&scope=${auth.scope}`,
+      ...auth
+    }
+    this.$el.html(_.template(this.template, data, { variable: 'auth' }));
     return this;
   },
 
