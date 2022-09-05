@@ -12,6 +12,7 @@ var buffer = require('vinyl-buffer');
 var merge2 = require('merge2');
 var mkdirp = require('mkdirp');
 var postcss = require('gulp-postcss');
+var envify = require('envify');
 var nodeJS = process.execPath;
 
 // Scripts paths.
@@ -122,6 +123,7 @@ gulp.task('build-app', ['templates'], function() {
     noParse: [require.resolve('handsontable/dist/handsontable.full')]
   })
   .add('./app/boot.js')
+  .transform(envify)
   .bundle()
   .pipe(source('app.js'))
   .pipe(buffer());

@@ -9,6 +9,7 @@
     "codemirror": "^5.13.2",
     "deepmerge": "~0.2.7",
     "diff": "~2.2.0",
+    "envify": "^4.1.0",
     "gulp-postcss": "^9.0.1",
     "handsontable": "git+https://github.com/handsontable/handsontable.git#0.20.2",
     "ignore": "~2.2.7",
