@@ -29,7 +29,6 @@ async function authenticate(code) {
     client_secret: CLIENT_SECRET,
     code
   }
-  console.log(body)
 
   const res = await fetch(url, {
     method: 'POST',
