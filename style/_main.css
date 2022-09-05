@@ -1395,7 +1395,7 @@
   .post .view.active {
     display:block;
     }
-  .post .view .code {
+  .post .view .CodeMirror {
     padding:15px 0;
     }
 
